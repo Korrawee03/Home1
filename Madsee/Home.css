@@ -1,46 +1,46 @@
 body {
     margin: 0;
     font-family: 'Georgia', serif;
-    background: white;
+    background: rgb(255, 255, 255);
     text-align: center;
 }
 
 .top-bar {
     background-color: #a6e8f9;
-    height: 40px;
-    border-top: 9px solid #5ad0f5;
+    height: 60px;
+    border-top: 30px solid #5ad0f5;
+   
 }
 
 .bottom-bar {
     background-color: #5ad0f5;
-    height: 40px;
+    height: 100px;
+    position: fixed;
+    bottom: 35;  /* เลื่อนขึ้นมาด้านล่างสุด */
+    width: 100%; /* ทำให้แถบกว้างเต็มหน้าจอ */
+    z-index: 1000; /* ทำให้แถบอยู่ด้านบนของเนื้อหา */
+  
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
+    grid-gap: 60px;
     padding: 40px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: auto;
 }
 
 .menu-item {
     background-color: #98a2c4;
     border-radius: 30px;
-    padding: 15px 20px;
-    box-shadow: 5px 5px 0px black;
-    font-size: 28px;
+    padding: 20px 30px;
+    box-shadow: 10px 5px 0px black;
+    font-size: 100px;
     color: white;
     font-weight: bold;
-    
-}
-
-.person img {
-    width: 200px;
-    position: absolute;
-    bottom: 50px;
-    left: 50px;
+    margin-top: 45px; /* เพิ่มระยะห่างด้านบน */
+    padding-top: 30px; /* เพิ่มพื้นที่ภายในด้านบน */ 
 }
 .full-width {
     grid-column: 1 / -1; /* ให้กินทั้ง 2 คอลัมน์ */
