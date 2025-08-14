@@ -7,43 +7,77 @@ body {
 
 .top-bar {
     background-color: #a6e8f9;
-    height: 60px;
-    border-top: 30px solid #5ad0f5;
-   
+    height: 50px;
+    border-top: 25px solid #5ad0f5;
 }
 
 .bottom-bar {
     background-color: #5ad0f5;
-    height: 100px;
+    height: 80px;
     position: fixed;
-    bottom: 35;  /* เลื่อนขึ้นมาด้านล่างสุด */
-    width: 100%; /* ทำให้แถบกว้างเต็มหน้าจอ */
-    z-index: 1000; /* ทำให้แถบอยู่ด้านบนของเนื้อหา */
-  
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 60px;
+    grid-gap: 40px;
     padding: 40px;
-    max-width: 1000px;
+    max-width: 900px;
     margin: auto;
+    padding-bottom: 120px; /* กันไม่ให้เนื้อหาถูก bottom-bar บัง */
 }
 
 .menu-item {
     background-color: #98a2c4;
-    border-radius: 30px;
-    padding: 20px 30px;
-    box-shadow: 10px 5px 0px black;
-    font-size: 100px;
+    border-radius: 25px;
+    padding: 25px 30px;
+    box-shadow: 8px 4px 0px black;
+    font-size: 60px;
     color: white;
     font-weight: bold;
-    margin-top: 45px; /* เพิ่มระยะห่างด้านบน */
-    padding-top: 30px; /* เพิ่มพื้นที่ภายในด้านบน */ 
+    margin-top: 30px;
 }
+
 .full-width {
-    grid-column: 1 / -1; /* ให้กินทั้ง 2 คอลัมน์ */
-    justify-self: center; /* จัดตรงกลาง */
-    width: fit-content; /* ให้ความกว้างพอดีข้อความ */
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: fit-content;
 }
+/* 1. เมนูเด้งน่ารักตอน hover */
+.menu-item:hover {
+    transform: scale(1.05);
+    background-color: #c2a3f3;
+    transition: 0.10s ease;
+    animation: bounce 0.8s;
+}
+
+/* 2. bounce animation */
+@keyframes bounce {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1.05); }
+}
+
+/* 3. เมนูเฟดเข้าเบาๆ ตอนโหลด */
+.menu-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s forwards;
+}
+
+.menu-item:nth-child(1) { animation-delay: 0.1s; }
+.menu-item:nth-child(2) { animation-delay: 0.2s; }
+.menu-item:nth-child(3) { animation-delay: 0.3s; }
+.menu-item:nth-child(4) { animation-delay: 0.4s; }
+.menu-item:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
